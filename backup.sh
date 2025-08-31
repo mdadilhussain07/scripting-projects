@@ -21,12 +21,11 @@ log "Backup will be: $DEST_DIR/$FILENAME"
 mkdir -p "$DEST_DIR"
 
 # Create compressed backup
-
 if ! tar -czf "$DEST_DIR/$FILENAME" "$SRC_DIR" 2>/dev/null; then
-log " Some files could not be read. Try running with sudo for a full backup."
+	  log "⚠️  Some files could not be read. Try running with sudo for a full backup."
+  else
+	    log "✅ Backup created: $DEST_DIR/$FILENAME"
 fi
 
-# Log success
-log "Backup created: $DEST_DIR/$FILENAME"
 
 
